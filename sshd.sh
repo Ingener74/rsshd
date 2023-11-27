@@ -70,6 +70,7 @@ fi
 # Allow external hosts to connect
 if [ -z "$LOCAL" -o "$LOCAL" == 0 ]; then
     sed -i "s;\GatewayPorts no;GatewayPorts yes;g" $SDIR/sshd_config
+    sed -i "s;\GatewayPorts yes;GatewayPorts clientspecified;g" $SDIR/sshd_config
     sed -i "s;\AllowTcpForwarding no;AllowTcpForwarding yes;g" $SDIR/sshd_config
 fi
 
